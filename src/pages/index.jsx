@@ -1,3 +1,5 @@
 import Home from "./Home";
 import PageNotFound from "./PageNotFound";
-export { Home, PageNotFound };
+import Register from "./Register";
+
+export { Home, PageNotFound , Register};

@@ -1,7 +1,7 @@
 
 import './App.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { Home, PageNotFound, Adopt } from './pages/index';
+import { Home, PageNotFound, Register } from './pages/index';
 import { Navbar, Footer } from './components/index';
 function App() {
 
@@ -24,8 +24,8 @@ function App() {
           path: "/", element: <Home />
         },
         {
-          path: "/adopt", element: <Adopt />
-        }
+          path: "/register", element: <Register />
+        },
         {
           path: "*",
           element: <PageNotFound />,

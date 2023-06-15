@@ -1,7 +1,7 @@
 
 import './App.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { Home } from './pages/index';
+import { Home, PageNotFound, Adopt } from './pages/index';
 import { Navbar, Footer } from './components/index';
 function App() {
 
@@ -20,7 +20,16 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "/", element: <Home /> },
+        {
+          path: "/", element: <Home />
+        },
+        {
+          path: "/adopt", element: <Adopt />
+        }
+        {
+          path: "*",
+          element: <PageNotFound />,
+        },
       ],
     },
   ]);

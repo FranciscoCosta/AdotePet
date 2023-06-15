@@ -7,6 +7,7 @@ function Navbar() {
       <div className="Navbar__container">
         <div className="Navbar__logo">
           <img src={logo} alt="logo" />
+          <h1>adotePet</h1>
         </div>
         <div className="Navbar__links">
           <div className='link'>

@@ -16,8 +16,18 @@
         margin: 0 auto;
 
         .Navbar__logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
             height: 100%;
             overflow: hidden;
+
+            h1{
+                font-size: 3rem;
+                color: var(--primary-color);
+                cursor: pointer;
+            }
             img {
                 cursor: pointer;
                 height: 100%;

@@ -1,13 +1,17 @@
 
-import './App.css'
+import './App.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Home } from './pages/index';
+import { Navbar, Footer } from './components/index';
 function App() {
 
   const Layout = () => {
     return (
-        <>
-          <Outlet />
-        </>
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
     );
   };
 
@@ -16,7 +20,7 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "/", element: <div>Home</div> },
+        { path: "/", element: <Home /> },
       ],
     },
   ]);

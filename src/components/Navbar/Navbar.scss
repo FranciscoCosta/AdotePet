@@ -1,0 +1,84 @@
+.Navbar {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 120px;
+    background-color: var(--background-color-nav);
+    position: fixed;
+
+    .Navbar__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 90%;
+        padding: 0 20px;
+        margin: 0 auto;
+
+        .Navbar__logo {
+            height: 100%;
+            overflow: hidden;
+            img {
+                cursor: pointer;
+                height: 100%;
+            }
+        }
+        .Navbar__links{
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            justify-content: space-between;
+
+            .link{
+
+                a{
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1.7rem;
+                    font-weight: 600;
+                    transition: all 0.4s ease-in-out;
+                }
+                div{
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: var(--primary-color);
+                    transform-origin: center;
+                    transition: transform 0.25s ease-out;
+                }
+            
+            &:hover{
+                a{
+                    color: var(--primary-color);
+                }
+                div{
+                    transform: scaleX(1);
+                }
+            }
+            }
+
+            button{
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                background-color: transparent;
+                color: var(--primary-color);
+                border: 2px solid var(--secondary-color);
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                width: 130px;
+                cursor: pointer;
+                transition: all 0.4s ease-in-out;
+                margin-left: 1rem;
+
+                &:hover{
+                    background-color: var(--primary-color);
+                    color: black;
+                    border: 2px solid black;
+                }
+            }
+        }
+    }
+}

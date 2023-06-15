@@ -4,6 +4,7 @@
     height: 120px;
     background-color: var(--background-color-nav);
     position: fixed;
+    z-index: 10;
 
     .Navbar__container {
         display: flex;

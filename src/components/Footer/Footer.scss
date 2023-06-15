@@ -1,4 +1,89 @@
 .Footer {
-    width: 100vw;
-    overflow-x: hidden;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--background-color-nav);
+  padding: 2rem 0;
+  height: 300px;
+
+  .Footer__left,
+  .Footer__right,
+  .Footer__center {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+
+    .Footer__title {
+      overflow: hidden;
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--primary-color);
+      }
+      div {
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+    }
+    h3 {
+      overflow: hidden;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+  }
+  .Footer__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 1rem;
+
+    .Footer__social {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+      gap: 1rem;
+
+      .Footer_svg {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        margin: 0.25rem 0;
+        border: 1px solid var(--secondary-color);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.3s ease-in-out;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          color: black;
+        }
+
+        &:hover {
+          background-color: black;
+          border-color: white;
+
+          svg {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
 }

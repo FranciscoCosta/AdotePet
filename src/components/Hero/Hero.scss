@@ -1,0 +1,120 @@
+.Hero{
+    background-color: var(--background-color-main);
+    height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    .Hero__left{
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        position: relative;
+
+        img{
+            position: absolute;
+            bottom: 100px;
+            left: 250px;
+            width: 250px;
+            transform: scaleX(-1);
+        }
+        h1{
+            color: white;
+            font-size: 5rem;
+            span{
+                color: var(--primary-color);
+                display: inline-block;
+                transform: rotate(-3deg);
+                font-size: 5.4rem;
+                text-transform: uppercase;
+            }
+        }
+        p{
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
+            color: var(--text-color);
+            span{
+                color: var(--primary-color);
+                font-weight: 700;
+            }
+        }
+
+        button{
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: 200px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            margin-top: 3rem;
+            align-self: flex-start;
+
+            &:hover{
+                background-color: var(--primary-color);
+                color: black;
+                border: 2px solid black;
+            }
+        }
+    }
+    .Hero__center{
+        flex: 3;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 2rem;
+        img{
+            object-fit: cover;
+            width: 700px;
+            transition: all 0.4s ease-in-out;
+        }
+    }
+    .Hero__right{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        gap: 0.25rem;
+        transition: all 0.4s ease-in-out;
+
+        .Hero__steps{
+            padding: 1rem;
+            border-radius: 20px;
+            width: 200px;
+            cursor: pointer;
+
+            h3{
+                color: white;
+                font-size: 1.6rem;
+            }
+            p{
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--text-color);
+            }
+        }
+
+        .active {
+            background-color: var(--primary-color);
+            
+            h3{
+                color: black;
+            }
+            p{
+                color: black;
+            }
+        }
+    }
+}

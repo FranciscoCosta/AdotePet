@@ -1,25 +1,26 @@
 import pets from '../../data.json';
 import logo from '../../assets/logo1.png';
+import arrow1 from '../../assets/arrow.png'
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    superLargeDesktop: {
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1
+    }
 };
 
 import './Display.scss';
@@ -29,13 +30,20 @@ function Display() {
         <section className='Display'>
             <div className="Display__container">
                 <div className='Display__title'>
+                    <img src={arrow1} alt="arrow-icon"  className='arrow'/>
                     <h1>Alguns dos nossos <span>Aumigos</span> disponíveis.</h1>
                     <img src={logo} alt="logo-icon" />
                 </div>
                 <div>
 
                 </div>
-                <Carousel responsive={responsive} className='Display__Cards' centerMode={true}>
+                <Carousel
+                    responsive={responsive}
+                    className='Display__Cards'
+                    autoPlay={true}
+                    infinite={true}
+                    transitionDuration={5}
+                    centerMode={true}>
                     {
                         pets.map((pet: any) => {
                             return (

@@ -12,7 +12,7 @@ function Register() {
                     <p>Encontre seu companheiro de quatro patas no adotePet! Milhares de animais esperam por um lar amoroso. Adote um pet hoje mesmo e transforme uma vida. Seja parte dessa incrível jornada de amor e alegria. Visite adotePet agora!</p>
                 </div>
                 <div className="Register__container-right">
-                    <h1>Registrar:</h1>
+                    <h1>Nova conta:</h1>
                     <form action="POST">
                         <div className='input__group'>
                             <input
@@ -53,7 +53,7 @@ function Register() {
                             <label htmlFor="confirm-password">Confirmar senha:</label>
                         </div>
                     </form>
-                    <button className='Register-btn'> Registrar </button>
+                    <button className='Register-btn'> Cadastrar </button>
                 </div>
             </div>
         </div>

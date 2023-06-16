@@ -69,7 +69,7 @@
       .Display__card {
         width: 300px;
         height: 500px;
-        border: 2px solid #fd941f;
+        border: 2px solid var(--primary-color);
         border-radius: 10px;
         overflow: hidden;
 
@@ -77,16 +77,18 @@
           height: 250px;
           overflow: hidden;
           position: relative;
-
           h4 {
-            width: 100%;
             position: absolute;
-            font-size: 2rem;
-            bottom: 0;
-            right: 0;
+            font-size: 1.5rem;
+            width: 120px;
+            text-align: center;
+            padding: 2px 20px 2px 20px;
+            border-radius:100px;
+            border: 2px solid var(--secondary-color);
+            bottom: 5px;
+            right: 10px;
             color: var(--primary-color);
-            padding: 5px 15px;
-            background-color: rgba(0,0,0,0.55);
+            background-color: rgba(0,0,0,0.9);
 
           }
           img {
@@ -99,9 +101,11 @@
             width: 100%;
             height: 250px;
             padding: 10px;
-            border-top: 2px solid #fd941f;
-            background-color: rgba(0,0,0,0.7);
+            border-top: 2px solid var(--secondary-color);
+            background-color: black;
             position: relative;
+
+
             p{
                 color: white;
                 font-size: 1.2rem;
@@ -127,11 +131,17 @@
                 text-transform: uppercase;
                 letter-spacing: 1.5px;
                 border: none;
-                color: var(--primary-color);
-                border-top: 2px solid #fd941f;
+                color: white;
+                border-top: 2px solid var(--secondary-color);
                 outline: none;
-                background-color: rgba(0,0,0,0.5);
+                background-color:var(--secondary-color);
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
 
+                &:hover{
+                  background-color: white;
+                  color: black;
+                }
             }
         }
       }

@@ -23,6 +23,10 @@ function Navbar() {
             <div className="Links__bar" />
           </div>
           <div className='link'>
+            <a href="/register">Cadastrar</a>
+            <div className="Links__bar" />
+          </div>
+          <div className='link'>
             <a href="/">Francisco</a>
             <div className="Links__bar" />
           </div>

@@ -29,3 +29,15 @@
   background-color: var(--primary-color);
   border-radius: 100px;
 }
+
+.spacer{
+  aspect-ratio: 960/100;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.main__footer{
+  background-image: url('assets/wave2.svg');
+}

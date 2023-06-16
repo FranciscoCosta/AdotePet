@@ -1,7 +1,7 @@
 .Display {
   background-color: #245654;
   width: 100%;
-  min-height: 100vh;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;

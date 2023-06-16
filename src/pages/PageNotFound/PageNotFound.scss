@@ -1,11 +1,12 @@
 .PageNotFound{
     width: 100vw;
-    min-height: 100vh;
+    height: max-content;
     background-color: var(--background-color-main);
     overflow-x: hidden;
     color: var(--text-color-main);
     margin-top: 120px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     .PageNotFound__container{

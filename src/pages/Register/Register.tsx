@@ -56,6 +56,7 @@ function Register() {
                     <button className='Register-btn'> Cadastrar </button>
                 </div>
             </div>
+            <div className='spacer main__footer'/>
         </div>
     )
 }

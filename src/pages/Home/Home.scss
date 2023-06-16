@@ -4,4 +4,12 @@
     background-color: var(--background-color-main);
     overflow-x: hidden;
     color: var(--text-color-main);
+    
+    .hero__display{
+        background-image: url('../../assets/wave.svg');
+    }
+
+    .display__footer{
+        background-image: url('../../assets/wave1.svg');
+    }
 }

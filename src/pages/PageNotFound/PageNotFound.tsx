@@ -9,7 +9,7 @@ function PageNotFound() {
                 <h1>404</h1>
                 <h2>Página não encontrada.</h2>
             </div>
-            <div className='spacer main__footer'></div>
+            <div className='spacer main__footer'/>
         </div>
     )
 }

@@ -165,9 +165,9 @@
       margin-bottom: 4rem;
 
       &:hover{
-          background-color: var(--primary-color);
-          color: black;
-          border: 2px solid white;
+          background-color: black;
+          color: var(--primary-color);
+          border: 2px solid var(--secondary-color);
       }
   }
   }

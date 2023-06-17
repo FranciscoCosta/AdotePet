@@ -38,6 +38,14 @@
   background-size: cover;
 }
 
+.hero__display{
+  background-image: url('../../assets/wave.svg');
+}
+
 .main__footer{
   background-image: url('assets/wave2.svg');
+}
+
+.display__footer{
+  background-image: url('../../assets/wave1.svg');
 }

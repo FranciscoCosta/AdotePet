@@ -1,95 +1,160 @@
 .Navbar {
-    width: 100vw;
-    overflow-x: hidden;
-    height: 120px;
-    background-color: var(--background-color-nav);
-    position: fixed;
-    z-index: 10;
+  width: 100vw;
+  overflow-x: hidden;
+  height: 120px;
+  background-color: var(--background-color-nav);
+  position: fixed;
+  z-index: 10;
+  border-bottom: 1px solid var(--primary-color);
 
-    .Navbar__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  .Navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+    padding: 0 20px;
+    margin: 0 auto;
+    position: relative;
+
+    .Navbar__logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      overflow: hidden;
+
+      h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+      img {
+        cursor: pointer;
         height: 100%;
-        width: 90%;
-        padding: 0 20px;
-        margin: 0 auto;
-
-        .Navbar__logo {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            overflow: hidden;
-
-            h1{
-                font-size: 3rem;
-                color: var(--primary-color);
-                cursor: pointer;
-            }
-            img {
-                cursor: pointer;
-                height: 100%;
-            }
-        }
-        .Navbar__links{
-            display: flex;
-            flex-direction: row;
-            width: 50%;
-            justify-content: space-between;
-
-            .link{
-
-                a{
-                    text-decoration: none;
-                    color: white;
-                    font-size: 1.7rem;
-                    font-weight: 600;
-                    transition: all 0.4s ease-in-out;
-                }
-                div{
-                    width: 100%;
-                    transform: scaleX(0);
-                    height: 2px;
-                    bottom: 0;
-                    left: 0;
-                    background-color: var(--primary-color);
-                    transform-origin: center;
-                    transition: transform 0.25s ease-out;
-                }
-            
-            &:hover{
-                a{
-                    color: var(--primary-color);
-                }
-                div{
-                    transform: scaleX(1);
-                }
-            }
-            }
-
-            button{
-                padding: 0.5rem 1rem;
-                border-radius: 1.5rem;
-                background-color: transparent;
-                color: var(--primary-color);
-                border: 2px solid var(--secondary-color);
-                font-size: 1.2rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 1.5px;
-                width: 130px;
-                cursor: pointer;
-                transition: all 0.4s ease-in-out;
-                margin-left: 1rem;
-
-                &:hover{
-                    background-color: var(--primary-color);
-                    color: black;
-                    border: 2px solid black;
-                }
-            }
-        }
+      }
     }
+    .Navbar__links {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+
+      .link {
+        a,
+        h3 {
+          text-decoration: none;
+          color: white;
+          font-size: 1.7rem;
+          font-weight: 600;
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
+        }
+        div {
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--primary-color);
+          transform-origin: center;
+          transition: transform 0.25s ease-out;
+        }
+
+        &:hover {
+          a {
+            color: var(--primary-color);
+          }
+          div {
+            transform: scaleX(1);
+          }
+        }
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        border-radius: 1.5rem;
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        width: 130px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        margin-left: 1rem;
+
+        &:hover {
+          background-color: var(--primary-color);
+          color: black;
+          border: 2px solid black;
+        }
+      }
+    }
+
+    .Navbar__menu {
+      display: none;
+      position: absolute;
+
+      &.active {
+        display: flex;
+        right: 10%;
+        height: min-content;
+        bottom: 5px;
+        gap: 2rem;
+
+        a {
+            height: 30px;
+            overflow: hidden;
+          svg {
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+
+            &:hover {
+              animation: bellshake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+              color: var(--primary-color);
+              font-size: 1.6rem;
+              @keyframes bellshake {
+                0% {
+                  transform: rotate(0);
+                }
+                15% {
+                  transform: rotate(5deg);
+                }
+                30% {
+                  transform: rotate(-5deg);
+                }
+                45% {
+                  transform: rotate(4deg);
+                }
+                60% {
+                  transform: rotate(-4deg);
+                }
+                75% {
+                  transform: rotate(2deg);
+                }
+                85% {
+                  transform: rotate(-2deg);
+                }
+                92% {
+                  transform: rotate(1deg);
+                }
+                100% {
+                  transform: rotate(0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

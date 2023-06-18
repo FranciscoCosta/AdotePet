@@ -58,7 +58,7 @@ function Display() {
                                         <p>Peso: <span>{pet.weight} kg</span></p>
                                         <p>Tamanho: <span>{pet.size}</span></p>
                                         <p>Raça: <span>{pet.breed}</span></p>
-                                        <button>Saber mais</button>
+                                        <button onClick={() => window.location.href = '/adopt'}>Saber mais</button>
                                     </div>
 
                                 </div>
@@ -67,7 +67,9 @@ function Display() {
                     }
                 </Carousel>
 
-                <button className='Display__more'> Ver mais </button>
+                <button className='Display__more'
+                onClick={() => window.location.href = '/adopt'}
+                > Ver mais </button>
             </div>
         </section>
     )

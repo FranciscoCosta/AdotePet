@@ -13,10 +13,18 @@ const currentUser = {
   name: 'João'
 }
 
+
+
 import logo from '../../assets/logo1.png'
 function Navbar() {
 
   const [userMenu, setUserMenu] = useState(false);
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
   return (
     <div className='Navbar'>
       <div className="Navbar__container">
@@ -54,7 +62,9 @@ function Navbar() {
                 <div className="Links__bar" />
               </div>
 
-              <button>Logout</button>
+              <button
+              onClick={handleLogout}
+              >Logout</button>
             </>
             : <button
               onClick={() => window.location.href = '/login'}

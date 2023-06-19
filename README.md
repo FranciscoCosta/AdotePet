@@ -17,20 +17,18 @@ O website AdotePet é uma plataforma online dedicada à promoção da adoção r
 
 ## Rota adopt
 
-
 ![App Screenshot](https://i.ibb.co/SN1nr43/image.png)
 
 ## Rota login
-
 
 ![App Screenshot](https://i.ibb.co/cNVLfjB/image.png)
 
 ## Rota register
 
-
 ![App Screenshot](https://i.ibb.co/GQjGyxT/image.png)
 
 ## Rota notfound
+
 ![App Screenshot](https://i.ibb.co/yYFxk0N/image.png)
 
 ## Em construção
@@ -48,5 +46,5 @@ O website AdotePet é uma plataforma online dedicada à promoção da adoção r
 
 ## Autor
 
-- [Francisco Costa](https://github.com/FranciscoCosta/)
+- [Francisco Costa](https://github.com/FranciscoCosta/).
 

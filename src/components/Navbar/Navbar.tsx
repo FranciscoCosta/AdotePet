@@ -74,7 +74,6 @@ function Navbar() {
         <div className={`Navbar__menu ${userMenu ? 'active' : ''}`}>
           <a href=""><CgProfile/></a>
           <a href=""><MdOutlinePets/></a>
-          <a href=""><MdOutlineFavorite/></a>
           <a href=""><AiFillMessage/></a>
         </div>
       </div>

@@ -4,7 +4,7 @@
   height: 120px;
   background-color: var(--background-color-nav);
   position: fixed;
-  z-index: 10;
+  z-index: 99999;
   border-bottom: 1px solid var(--primary-color);
 
   .Navbar__container {

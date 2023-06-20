@@ -1,7 +1,7 @@
 
 import './App.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { Home, PageNotFound, Register, Login, Adopt, Profile } from './pages/index';
+import { Home, PageNotFound, Register, Login, Adopt, Profile, Pets } from './pages/index';
 import { Navbar, Footer } from './components/index';
 function App() {
 
@@ -34,6 +34,9 @@ function App() {
         },
         {
           path: "/profile", element: <Profile />
+        },
+        {
+          path: "/pets", element: <Pets />
         },
         {
           path: "*",

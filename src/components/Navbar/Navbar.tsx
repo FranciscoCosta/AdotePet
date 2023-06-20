@@ -73,7 +73,7 @@ function Navbar() {
         </div>
         <div className={`Navbar__menu ${userMenu ? 'active' : ''}`}>
           <a href="/profile"><CgProfile/></a>
-          <a href="/add/pet"><MdOutlinePets/></a>
+          <a href="/pets"><MdOutlinePets/></a>
           <a href="/messages"><AiFillMessage/></a>
         </div>
       </div>

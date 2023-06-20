@@ -107,14 +107,18 @@
           transform: translateY(-50%);
           color: var(--primary-color);
           font-size: 20px;
+
+          &.sent {
+            color: #47ff02;
+          }
         }
       }
-      img{
+      img {
         width: 10rem;
         object-fit: cover;
         margin-bottom: 1rem;
       }
-      p{
+      p {
         font-size: 1.2rem;
         font-weight: 600;
         color: white;
@@ -125,7 +129,7 @@
         }
       }
 
-      .Profile__right__display{
+      .Profile__right__display {
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -134,8 +138,8 @@
       }
     }
 
-    .Profile__left{
-        background: url('../../assets/bgProfile1.jpg');
+    .Profile__left {
+      background: url("../../assets/bgProfile1.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       justify-content: flex-end;

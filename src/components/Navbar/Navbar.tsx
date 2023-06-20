@@ -46,7 +46,7 @@ function Navbar() {
             <div className="Links__bar" />
           </div>
           <div className='link'>
-            <a href="/donate">Doar</a>
+            <a href="/pets">Doar</a>
             <div className="Links__bar" />
           </div>
           <div className='link'>
@@ -57,7 +57,8 @@ function Navbar() {
             <>
               <div className='link'>
                 <h3
-                  onClick={() => setUserMenu(!userMenu)}
+                  onMouseEnter={() => setUserMenu(!userMenu)}
+                  
                 >{currentUser.name}</h3>
                 <div className="Links__bar" />
               </div>

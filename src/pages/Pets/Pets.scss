@@ -1,0 +1,264 @@
+.Pets {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--background-color-main);
+  overflow-x: hidden;
+  color: var(--text-color-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+  position: relative;
+
+  .Pets__container {
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--background-color-main);
+    position: relative;
+
+    table {
+      margin-top: 7rem;
+      width: 100%;
+
+      tr {
+        height: 100px;
+
+        th {
+          text-align: left;
+          color: white;
+          font-size: 1.6rem;
+        }
+        td {
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          padding: 10px;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: var(--primary-color);
+          .edit {
+            color: gold;
+            cursor: pointer;
+          }
+          .remove {
+            color: crimson;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    button {
+      position: absolute;
+      top: 2rem;
+      right: 5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--secondary-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      width: 160px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      margin-left: 1rem;
+      &:hover {
+        background-color: var(--primary-color);
+        color: black;
+        border: 2px solid black;
+      }
+    }
+  }
+  .modal__add,
+  .modal__edit {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal__container {
+      width: 90%;
+      height: 50rem;
+      background-color: var(--background-color-main);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--primary-color);
+
+      form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        .modal__left,
+        .modal__right {
+          flex: 1;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+          }
+
+          textarea{
+            width: 100%;
+            height: 300px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 0.5rem 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            outline: none;
+            color: white;
+            background-color: var(--background-color-main);
+            transition: all 0.3s ease-in-out;
+            margin-top: 1rem;
+
+            &:focus {
+              border: 2px solid var(--primary-color);
+            }
+          }
+
+          .modal__right-bottom {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 10rem;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+
+            .select_info {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+
+              label {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--primary-color);
+              }
+            }
+          }
+
+          h1 {
+            color: var(--primary-color);
+            font-size: 5rem;
+            font-weight: 600;
+          }
+
+          select {
+            width: 200px;
+            height: 50px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            outline: none;
+            color: white;
+            background-color: var(--background-color-main);
+            transition: all 0.3s ease-in-out;
+
+            &:focus {
+              border: 2px solid var(--primary-color);
+            }
+          }
+
+          .input__group {
+            position: relative;
+
+            input {
+              margin: 1rem;
+              border: solid 1.5px var(--secondary-color);
+              border-radius: 1rem;
+              background: none;
+              padding: 1rem;
+              font-size: 1rem;
+              color: white;
+              transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            input:-webkit-autofill {
+              background-color: black;
+            }
+            input:focus {
+              outline: none;
+              border: 1.5px solid var(--primary-color);
+            }
+
+            label {
+              position: absolute;
+              left: 30px;
+              color: #e8e8e8;
+              pointer-events: none;
+              font-size: 1.2rem;
+              font-weight: 600;
+              transform: translateY(2rem);
+              transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            input:focus ~ label {
+              transform: translateY(-5%);
+              background-color: var(--background-color-main);
+              padding: 0 0.2rem;
+              color: var(--primary-color);
+            }
+            input:not(:placeholder-shown) ~ label {
+              transform: translateY(-5%);
+              background-color: var(--background-color-main);
+              padding: 0 0.2rem;
+              color: var(--primary-color);
+            }
+          }
+          button {
+            width: 200px;
+            height: 50px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            background-color: transparent;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            margin-top: 3rem;
+            &:hover {
+              background-color: var(--primary-color);
+              color: black;
+              border: 2px solid black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

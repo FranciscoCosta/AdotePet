@@ -57,6 +57,7 @@ function Navbar() {
             <>
               <div className='link'>
                 <h3
+                onClick={() => window.location.href = '/profile' }
                   onMouseEnter={() => setUserMenu(!userMenu)}
                   
                 >{currentUser.name}</h3>

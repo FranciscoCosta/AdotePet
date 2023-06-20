@@ -1,7 +1,7 @@
 import './Navbar.scss'
 import { useState } from 'react'
 import { CgProfile } from 'react-icons/cg';
-import { MdOutlinePets, MdOutlineFavorite } from 'react-icons/md';
+import { MdOutlinePets } from 'react-icons/md';
 import { AiFillMessage } from 'react-icons/ai';
 
 
@@ -72,9 +72,9 @@ function Navbar() {
           }
         </div>
         <div className={`Navbar__menu ${userMenu ? 'active' : ''}`}>
-          <a href=""><CgProfile/></a>
-          <a href=""><MdOutlinePets/></a>
-          <a href=""><AiFillMessage/></a>
+          <a href="/profile"><CgProfile/></a>
+          <a href="/pets"><MdOutlinePets/></a>
+          <a href="/messages"><AiFillMessage/></a>
         </div>
       </div>
     </div>

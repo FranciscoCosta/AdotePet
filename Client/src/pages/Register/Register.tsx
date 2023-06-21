@@ -1,8 +1,55 @@
-import './Register.scss'
+import './Register.scss';
+import { useState } from 'react';
+import newRequest from '../../utils/newRequest.js';
+
+import { useNavigate } from 'react-router';
+
 function Register() {
 
-    const handleChange = () => {
-        console.log("aqui")
+    const [name, setname] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
+
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        const inputVerified =await verifyInputs();
+        if (inputVerified) {
+            try {
+                const response = await newRequest.post('/auth/register', { name, email, password });
+                if (response.status === 201) {
+                    navigate('/login');
+                }
+            } catch (err : any) {
+                console.log(err)
+                setError(err.response.data.message);
+            }
+        }
+    }
+
+    const verifyInputs = async () => {
+        setError('');
+        if (!name || !email || !password) {
+            setError('Preencha todos os campos');
+            return false;
+        }
+        if (password.length < 6) {
+            setError('A senha deve ter no mínimo 6 caracteres');
+            return false;
+        }
+        if (password !== confirmPassword) {
+            setError('As senhas não coincidem');
+            return false;
+        }
+        if (!email.includes('@')) {
+            setError('Email inválido');
+            return false;
+        }
+        return true;
     }
     return (
         <div className="Register">
@@ -13,14 +60,14 @@ function Register() {
                 </div>
                 <div className="Register__container-right">
                     <h1>Nova conta:</h1>
-                    <form action="POST">
+                    <form>
                         <div className='input__group'>
                             <input
                                 autoComplete='off'
                                 placeholder=' '
-                                name="username"
+                                name="name"
                                 type="text"
-                                onChange={handleChange}
+                                onChange={(e) => setname(e.target.value)}
                             />
                             <label htmlFor="username">Nome:</label>
                         </div>
@@ -30,7 +77,7 @@ function Register() {
                                 placeholder=' '
                                 name="email"
                                 type="email"
-                                onChange={handleChange}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <label htmlFor="">Email:</label>
                         </div>
@@ -40,7 +87,7 @@ function Register() {
                                 placeholder=' '
                                 name="password"
                                 type="password"
-                                onChange={handleChange} />
+                                onChange={(e) => setPassword(e.target.value)} />
                             <label htmlFor="">Senha:</label>
                         </div>
                         <div className='input__group'>
@@ -49,14 +96,18 @@ function Register() {
                                 placeholder=' '
                                 name="confirm-password"
                                 type="password"
-                                onChange={handleChange} />
+                                onChange={(e) => setConfirmPassword(e.target.value)} />
                             <label htmlFor="confirm-password">Confirmar senha:</label>
                         </div>
                     </form>
-                    <button className='Register-btn'> Cadastrar </button>
+
+                    <button className='Register-btn' onClick={handleSubmit}> Cadastrar </button>
+                    {
+                        error && <p className='error'>{error}</p>
+                    }
                 </div>
             </div>
-            <div className='spacer main__footer'/>
+            <div className='spacer main__footer' />
         </div>
     )
 }

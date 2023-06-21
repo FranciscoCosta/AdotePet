@@ -24,6 +24,13 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/pet", petRoute);
+
+app.use((err, req, res, next) => {
+  const errStatus = err.status || 500;
+  const errMessage = err.message || "Algo deu errado";
+
+  return res.status(errStatus).json({ message: errMessage });
+});
   
 
 const startServer = async () => {

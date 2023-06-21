@@ -14,7 +14,7 @@ const registerService = async (req, res) => {
     const user = await newUser.save();
     return res.status(201).json(user);
   } catch (error) {
-    return { error };
+    return next(error);
   }
 };
 
@@ -23,9 +23,10 @@ const loginService = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     const isMatch = await bcrypt.compareSync(req.body.password, user.password);
     if (!isMatch) {
-      return res
-        .status(400)
-        .json({ message: "Email ou senha incorreto" });
+      const error = new Error();
+      error.status = 404;
+      error.message = "Usuário ou senha incorretos";
+      return next(error);
     }
     const { password, ...info } = user._doc;
     const token = generateToken(info);
@@ -36,7 +37,7 @@ const loginService = async (req, res) => {
       .status(200)
       .json(info);
   } catch (error) {
-    return { error };
+    return next(error);
   }
 };
 

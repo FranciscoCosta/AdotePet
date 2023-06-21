@@ -39,7 +39,9 @@ const userSchema = new Schema({
             ref: "Pet",
         },
     ],
-    timestamp: true,
+    timestamp: {
+        type: Date,
+    },
 });
 
 export default mongoose.model("User", userSchema);

@@ -73,7 +73,9 @@ const petSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    timestamp: true,
+    timestamp: {
+        type: Date,
+    },
 });
 
 export default mongoose.model("Pet", petSchema);

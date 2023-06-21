@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import connectDB from "./mongo/connect.js";
 
 import userRoute from "./Routes/User.route.js";
+import petRoute from "./Routes/Pet.route.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 app.use(express.json());
 
 app.use("/api/user", userRoute);
+app.use("/api/pet", petRoute);
   
 
 const startServer = async () => {

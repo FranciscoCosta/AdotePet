@@ -3,6 +3,7 @@ import newRequest from '../../utils/newRequest.js'
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+
 function Login() {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -10,7 +11,6 @@ function Login() {
     const navigate = useNavigate();
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        console.log("aqui")
         try {
             const response = await newRequest.post("/auth/login", {
                 email,
@@ -36,7 +36,7 @@ function Login() {
                     <form>
                         <div className='input__group'>
                             <input
-                                autoComplete='off'
+                                autoComplete='nope'
                                 placeholder=' '
                                 name="email"
                                 type="email"
@@ -46,7 +46,7 @@ function Login() {
                         </div>
                         <div className='input__group'>
                             <input
-                                autoComplete='off'
+                                autoComplete='nope'
                                 placeholder=' '
                                 name="password"
                                 type="password"

@@ -3,37 +3,37 @@ import { useState } from 'react'
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlinePets } from 'react-icons/md';
 import { AiFillMessage } from 'react-icons/ai';
+import logo from '../../assets/logo1.png';
+import newRequest from '../../utils/newRequest.js';
 
+import { useNavigate } from 'react-router';
 
-
-import menuarrow from '../../assets/down-arrow.gif'
-
-
-const currentUser = {
-  name: 'João'
-}
-
-
-
-import logo from '../../assets/logo1.png'
 function Navbar() {
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
   const [userMenu, setUserMenu] = useState(false);
+  const navigate = useNavigate();
 
+  const handleLogout = async () => {
+    try {
+      await newRequest.post('auth/logout');
+      localStorage.removeItem('currentUser', null);
+      navigate('/login');
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
+    } catch (err) {
+      console.log(err);
+    }
   }
+
   return (
     <div className='Navbar'>
       <div className="Navbar__container">
         <div className="Navbar__logo">
-          <img src={logo} alt="logo" 
-          onClick={() => window.location.href = '/'}
+          <img src={logo} alt="logo"
+            onClick={() => navigate('/')}
           />
           <h1
-          onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')}
           >adotePet</h1>
         </div>
         <div className="Navbar__links">
@@ -45,10 +45,10 @@ function Navbar() {
             <a href="/adopt">Adotar</a>
             <div className="Links__bar" />
           </div>
-          <div className='link'>
+          {currentUser.name && <div className='link'>
             <a href="/pets">Doar</a>
             <div className="Links__bar" />
-          </div>
+          </div>}
           <div className='link'>
             <a href="/register">Cadastrar</a>
             <div className="Links__bar" />
@@ -57,26 +57,26 @@ function Navbar() {
             <>
               <div className='link'>
                 <h3
-                onClick={() => window.location.href = '/profile' }
+                  onClick={() => navigate('/profile')}
                   onMouseEnter={() => setUserMenu(!userMenu)}
-                  
+
                 >{currentUser.name}</h3>
                 <div className="Links__bar" />
               </div>
 
               <button
-              onClick={handleLogout}
+                onClick={handleLogout}
               >Logout</button>
             </>
             : <button
-              onClick={() => window.location.href = '/login'}
+              onClick={() => navigate('/login')}
             >Login</button>
           }
         </div>
         <div className={`Navbar__menu ${userMenu ? 'active' : ''}`}>
-          <a href="/profile"><CgProfile/></a>
-          <a href="/pets"><MdOutlinePets/></a>
-          <a href="/messages"><AiFillMessage/></a>
+          <a href="/profile"><CgProfile /></a>
+          <a href="/pets"><MdOutlinePets /></a>
+          <a href="/messages"><AiFillMessage /></a>
         </div>
       </div>
     </div>

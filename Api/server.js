@@ -2,6 +2,8 @@ import express from 'express';
 import * as dotenv from "dotenv";
 import connectDB from "./mongo/connect.js";
 
+import userRoute from "./Routes/User.route.js";
+
 const app = express();
 
 dotenv.config();
@@ -9,6 +11,10 @@ dotenv.config();
 app.get("/", (req, res) => {
     res.send("adotePet");
   });
+
+app.use(express.json());
+
+app.use("/api/user", userRoute);
   
 
 const startServer = async () => {

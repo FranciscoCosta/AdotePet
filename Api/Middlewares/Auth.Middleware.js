@@ -26,5 +26,31 @@ const verifyInputsRegister = async (req, res, next) => {
     }
 };
 
+const verifyInputsLogin = async (req, res, next) => {
+    try{
+        const {email, password} = req.body;
+        if(!email || !password){
+            return res.status(400).json({message: "Preencha todos os campos"});
+        }
+        next();
+    }catch(error){
+        res.status(500).json({message: error.message});
+    }
+};
 
-export {verifyEmail, verifyInputsRegister};
+const verifyUserLogin = async (req, res, next) => {
+    try{
+        const checkEmail = await User.findOne({email: req.body.email});
+        if(!checkEmail){
+            return res.status(400).json({message: "Email ou senha incorretos"});
+        }
+        next();
+    }catch(error){
+        res.status(500).json({message: error.message});
+    }
+};
+
+
+
+
+export {verifyEmail, verifyInputsRegister, verifyInputsLogin, verifyUserLogin};

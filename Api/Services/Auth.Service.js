@@ -19,19 +19,13 @@ const registerService = async (req, res) => {
 };
 
 const loginService = async (req, res) => {
-  console.log(req.body);
   try {
     const user = await User.findOne({ email: req.body.email });
-    if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Não existe usuário com esse email" });
-    }
     const isMatch = await bcrypt.compareSync(req.body.password, user.password);
     if (!isMatch) {
       return res
         .status(400)
-        .json({ message: "Senha incorreta ou email incorreto" });
+        .json({ message: "Email ou senha incorreto" });
     }
     const { password, ...info } = user._doc;
     const token = generateToken(info);

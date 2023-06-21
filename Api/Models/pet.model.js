@@ -18,6 +18,7 @@ const petSchema = new Schema({
     size: {
         type: String,
         required: true,
+        enum: ["Pequeno", "Médio", "Grande"],
     },
     weight: {
         type: Number,
@@ -28,15 +29,18 @@ const petSchema = new Schema({
     color: {
         type: String,
         required: true,
+        enum: ["Preto","Branco","Marrom","Cinza","Laranja","Amarelo","Caramelo","Verde","Azul","Roxo"]
     },
     gender: {
         type: String,
         required: true,
+        enum: ["macho", "fêmea"],
     },
     status: {
         type: String,
         required: true,
         default: "disponível",
+        enum: ["disponível", "adotado", "desaparecido"],
     },
     description : {
         type: String,
@@ -47,10 +51,12 @@ const petSchema = new Schema({
     species: {
         type: String,
         required: true,
+        enum: ["Cachorro","Gato","Pássaro","Roedor","Réptil","Outro"]
     },
     breed: {
         type: String,
         required: true,
+        default: "Vira-lata",
     },
     image: {
         type: String,

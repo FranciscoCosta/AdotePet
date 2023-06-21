@@ -1,8 +1,28 @@
 import './Login.scss'
-function Login() {
+import newRequest from '../../utils/newRequest.js'
 
-    const handleChange = () => {
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+function Login() {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    const navigate = useNavigate();
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
         console.log("aqui")
+        try {
+            const response = await newRequest.post("/auth/login", {
+                email,
+                password
+            })
+            console.log(response)
+            localStorage.setItem("currentUser", JSON.stringify(response.data));
+            navigate('/');
+
+        } catch (error: any) {
+            setError(error.response.data.message);
+        }
     }
     return (
         <div className="Login">
@@ -13,14 +33,14 @@ function Login() {
                 </div>
                 <div className="Login__container-right">
                     <h1>Login:</h1>
-                    <form action="POST">
+                    <form>
                         <div className='input__group'>
                             <input
                                 autoComplete='off'
                                 placeholder=' '
                                 name="email"
                                 type="email"
-                                onChange={handleChange}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <label htmlFor="">Email:</label>
                         </div>
@@ -30,14 +50,18 @@ function Login() {
                                 placeholder=' '
                                 name="password"
                                 type="password"
-                                onChange={handleChange} />
+                                onChange={(e) => setPassword(e.target.value)} />
                             <label htmlFor="">Senha:</label>
                         </div>
+
                     </form>
-                    <button className='Login-btn'> Entrar </button>
+                    <button className='Login-btn' type='submit' onClick={handleSubmit}> Entrar </button>
+                    {
+                        error && <p className='error'>{error}</p>
+                    }
                 </div>
             </div>
-            <div className='spacer main__footer'/>
+            <div className='spacer main__footer' />
         </div>
     )
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import * as dotenv from "dotenv";
 import connectDB from "./mongo/connect.js";
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import authRoute from "./Routes/Auth.route.js";
 import userRoute from "./Routes/User.route.js";
@@ -17,8 +18,11 @@ app.get("/", (req, res) => {
 
 
 //middlewares
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+
 app.use(express.json());
 app.use(cookieParser());
+
 
 //routes
 app.use("/api/auth", authRoute);

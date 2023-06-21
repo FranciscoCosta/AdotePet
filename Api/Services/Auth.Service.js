@@ -41,6 +41,17 @@ const loginService = async (req, res) => {
   }
 };
 
-const logoutService = async (req, res) => {};
+const logoutService = async (req, res) => {
+  try {
+    res
+      .clearCookie("acessToken",{
+        sameSite: "none",
+        secure: true,
+      })
+      .status(200).send("Deslogado com sucesso");
+  } catch (error) {
+    return next(error);
+  }
+};
 
 export { loginService, registerService, logoutService };

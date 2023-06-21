@@ -1,4 +1,5 @@
 import Jwt from "jsonwebtoken";
+import createError from "./Create.Error.js"
 
 const generateToken = (user) => {
     return Jwt.sign(
@@ -13,13 +14,18 @@ const generateToken = (user) => {
     );
     };
 
-    const verifyToken = (token, userId) => {
-        const decoded = Jwt.verify(token, process.env.JWT_SECRET);
-         const { id, email, name } = decoded;
-            if (id !== userId) {
-                return false;
+    const verifyToken = (req,res,next) => {
+        const token = req.cookies.acessToken;
+        if (!token) {
+            return next(createError(401, "Acesso negado"));
+        }
+        Jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+            if (err) {
+                return next(createError(403, "Token  inválido ou expirado"));
             }
-            return { id, email, name };
+            req.userId = decoded.id;
+            next();
+        });
     };
 
 

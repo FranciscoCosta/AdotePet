@@ -27,6 +27,12 @@ const login = async (req, res, next) => {
   }
 };
 
-const logout = async (req, res) => {};
+const logout = async (req, res) => {
+  try {
+    await logoutService(req, res);
+  } catch (error) {
+    return next(error);
+  }
+};
 
 export { login, register, logout };

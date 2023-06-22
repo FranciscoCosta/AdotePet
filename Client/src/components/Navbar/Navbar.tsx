@@ -49,7 +49,7 @@ function Navbar() {
             <a href="/pets">Doar</a>
             <div className="Links__bar" />
           </div>}
-          <div className='link'>
+           <div className='link'>
             <a href="/register">Cadastrar</a>
             <div className="Links__bar" />
           </div>

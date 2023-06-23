@@ -2,7 +2,7 @@ import './Loading.scss'
 
 function Loading() {
     return (
-        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster">
             <div className="wheel"></div>
             <div className="hamster">
                 <div className="hamster__body">
